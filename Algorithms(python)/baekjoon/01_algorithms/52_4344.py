@@ -11,5 +11,5 @@ for i in range(case):
 
     result=count/n[0]*100
     
-    print(f'{result:.3f}%') #
+    print(f'{result:.3f}%') 
    
