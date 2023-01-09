@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <!-- 국립해양조사원 오픈 api를 이용해서 원하는 날짜의 밀물 썰물 시간대 알아내기 -->
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+
+        <h1>조수차 시간</h1>
+        <!-- 원하는 장소를 선택할 수 있도록 select 생성 -->
+        <select id="place">
+            <option value="" selected disabled>위치 선택</option>
+            <option value="DT_0001">인천</option>
+            <option value="DT_0008">안산</option>
+            <option value="DT_0007">목포</option>
+        </select>
+        <!-- 원하는 날짜를 선택할 수 있도록 input type="date" 생성 -->
+        <input type="date" id="start-date" name="start-date">
+        <!-- input type="submit"을 이용하여 getTph()함수를 불러온다. -->
+        <input type="submit" value="확인" onclick=getTph()>
+        <h3 id="city"></h3>
+        <p id="t1"></p>
+        <p id="t2"></p>
+        <p id="t3"></p>
+        <p id="t4"></p>
+        <script>
+            function getTph(){
+                // 우선 선택된 option value값을 url의 변수(파라미터값) dt에 담는다.
+                var place  = document.getElementById("place")
+                var dt = (place.options[place.selectedIndex].value);
+                // 우선 선택된 option text값을 html에 출력하기 위한 변수에 담고 html에 출력.
+                var city =  (place.options[place.selectedIndex].text);
+		        document.getElementById('city').innerHTML = city;
+                // 선택된 날짜를 ' - '를 기준으로 분리하고 ' - ' 또는 공백  없이 모아준다.
+                const startDate = document.getElementById('start-date').value;
+                var todayDate=startDate.split('-');
+                var Date=todayDate[0]+todayDate[1]+todayDate[2];
+                
+                var url ='https://www.khoa.go.kr/api/oceangrid/tideObsPreTab/search.do?ServiceKey=D1H8zV6S/gnXCwLS4/oSw==&ObsCode='+ dt +'&Date='+ Date +'&ResultType=json';
+                
+                // fetch()함수를 통해 url을 불러온다
+                fetch(url)
+                .then((response) => response.json())
+                .then((data) => { 
+                    // Json data의 원하는 key만 불러오는데, ' '를 기준으로 분리하여 필요한 부분만 가져오고 html에 출력 
+                    tph0=data.result.data[0].tph_time.split(' ')
+                    document.getElementById('t1').innerHTML = tph0[1] + ' ' +data.result.data[0].hl_code;
+                    tph1=data.result.data[1].tph_time.split(' ')
+                    document.getElementById('t2').innerHTML = tph1[1] + ' ' +data.result.data[1].hl_code;
+                    tph2=data.result.data[2].tph_time.split(' ')
+                    document.getElementById('t3').innerHTML = tph2[1] + ' ' +data.result.data[2].hl_code;
+                    tph3=data.result.data[3].tph_time.split(' ')
+                    document.getElementById('t4').innerHTML = tph3[1] + ' ' +data.result.data[3].hl_code;
+                });
+          }
+        </script>
+    </body>
+</html>
