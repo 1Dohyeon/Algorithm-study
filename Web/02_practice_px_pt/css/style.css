@@ -1,0 +1,15 @@
+.test{
+    display: flex;
+    justify-content: space-between;
+}
+.layout1{
+    width: 360px;
+    height: 740px;
+    background-color: #000;
+}
+.layout2{
+    width: 270pt;
+    height: 555pt;
+    background-color: #000;
+}
+/* https://pixelsconverter.com/px-to-pt 를 통해 px->pt 참고ㄴ*/
