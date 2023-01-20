@@ -7,7 +7,10 @@ function Header(props){
   console.log('props', props, props.title) // console을 보면 props에 title: 'REACT'가 있는 것을 볼 수 있다.
   // { }를 이용하여 문자열을 가져오는 것이 아니라 props.title값을 가져온다.
   return <header>
-    <h1><a href="/">{props.title}</a></h1> 
+    <h1><a href="/" onClick={(event)=>{ // allowfunction ()=>{}
+      event.preventDefault(); // a의 기본동작을 방지 -> 클릭해도 리로드가 되지 않음
+      props.onChangeMode(); 
+    }}>{props.title}</a></h1> 
   </header>
 }
 
@@ -15,7 +18,12 @@ function Nav(props){
   const lis=[]
   for(let i=0; i<props.topics.length; i++){
     let t=props.topics[i];
-    lis.push(<li key={t.id}><a href={'/read/'+t.id}>{t.title}</a></li>)
+    lis.push(<li key={t.id}>
+      <a id={t.id} href={'/read/'+t.id} onClick={(event)=>{
+        event.preventDefault();
+        props.onChangeMode(event.target.id);
+      }}>{t.title}</a>
+    </li>)
   }
   return <nav>
     <ol>
@@ -37,8 +45,12 @@ function App() {
   ]
   return (
     <div>
-      <Header title="REACT"></Header>
-      <Nav topics={topics}></Nav>
+      <Header title="REACT" onChangeMode={()=>{
+        alert('Header');
+      }}></Header>
+      <Nav topics={topics} onChangeMode={(id)=>{
+        alert(id);
+      }}></Nav>
       <Article title="Welcome" body="Hello, WEB"></Article>
       <Article title="Hi" body="Hello, REACT"></Article>
     </div>
