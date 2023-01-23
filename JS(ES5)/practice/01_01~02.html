@@ -40,22 +40,44 @@ function map(lis, f){   // lis를 한바퀴 탐색하여 f조건에 적합한 �
     return new_lis;
 }
 
+// // each()를 이용
+// function _each(list,f){
+//   for(var i=0; i<list.length; i++){
+//     f(list[i]);
+//   }
+//   return list;
+// };
+
+// function filter(lis,f){ // lis를 한바퀴 탐색하여 f조건에 적합하면 적합한 원소만 새로운 리스트로 거르는 filter함수, 객체와 함수를 받는 함수
+//     var new_lis=[];
+//     _each(list, function(val){
+//         if(f(val)) new_lis.push(val);
+//     });
+//     return new_lis;
+// };
+
+// function map(lis,f){   // lis를 한바퀴 탐색하여 f조건에 적합한 새로운 원소의 특정 부분(id, name, ...)만 새로운 리스트에 담는 함수, 객체와 함수를 받는 함수 
+//     var new_lis=[];
+//     _each(list,function(val){
+//         new_lis.push(f(val));
+//     });
+//     return new_lis;
+// };
 
 // 30세 이상인 사람들의 이름을 출력하는 함수
+
+var over_30_name=map(filter(users, function(user){return user.age>=30;}), function(user){return user.name;})
 console.log(
-    map(
-        filter(users, function(user){return user.age>=30;}), function(user){return user.name;}
-    )
+    over_30_name
 );
 // 27세 미만인 사람들의 이름과 나이 출력하는 함수
+
+var under_27_name=map(filter(users, function(user){return user.age<27;}), function(user){return user.name;})
+var under_27_age=map(filter(users, function(user){return user.age<27;}), function(user){return user.age;})
 console.log(
-    map(
-        filter(users, function(user){return user.age<27;}), function(user){return user.name;}
-    )
-    ,map(
-        filter(users, function(user){return user.age<27;}), function(user){return user.age;}
-    )
+    under_27_name,under_27_age
 );
+
 </script>
 
 </body>

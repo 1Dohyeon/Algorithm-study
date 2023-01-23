@@ -98,6 +98,21 @@ console.log(
 // 3. each 만들기
   // 1. _each로 _map, _filter 중복 제거
 
+function each(list,iter){
+  for (var i = 0; i < users.length; i++){
+    iter(list[i])
+  }
+  return list;
+}
+
+function _map(list,mapper){
+  var new_list=[];
+  each(list,function(val){
+    new_list.push(mapper(val));
+  })
+  return new_list;
+}
+
   // 2. 외부 다형성
     // 1. array_like, arguments, document.querySelectorAll
 console.log(
