@@ -98,25 +98,10 @@ console.log(
 // 3. each 만들기
   // 1. _each로 _map, _filter 중복 제거
 
-function each(list,iter){
-  for (var i = 0; i < users.length; i++){
-    iter(list[i])
-  }
-  return list;
-}
-
-function _map(list,mapper){
-  var new_list=[];
-  each(list,function(val){
-    new_list.push(mapper(val));
-  })
-  return new_list;
-}
-
   // 2. 외부 다형성
     // 1. array_like, arguments, document.querySelectorAll
 console.log(
-  [1, 2, 3, 4].map(function(val) {
+  [1, 2, 3, 4].map(function(val) {  // 함수가 아니라 메소드, 즉 array에서만 적용된다.
     return val * 2;
   })
 );
@@ -130,8 +115,8 @@ console.log(
 console.log(document.querySelectorAll('*'));
 
 console.log(
-  _map(document.querySelectorAll('*'), function(node) {
-    return node.nodeName;
+  _map(document.querySelectorAll('*'), function(node) { // document는 array와 같이 length도 있고 원소가 담겨있지만 map 메소드를 실행할 수 없음
+    return node.nodeName;                               // 즉 전에 만들었던 nodelist까지 실행시킬 수 있는 _map()함수만 실행할 수 있다.                            
   })
 );
 
@@ -143,7 +128,7 @@ _map([1, 2, 3, 4], function(v) {
 
 
 // 3. 커링
-  // 1. _curry, _curryr
+  // 1. _curry, _curryr  함수와 인자를 다루는 기법
 var add = _curry(function(a, b) {
   return a + b;
 });
