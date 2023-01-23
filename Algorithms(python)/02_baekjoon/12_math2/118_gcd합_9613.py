@@ -1,5 +1,4 @@
-def gcd(a,b):   # 유클리드 호제법으로 최대공약수를 구하는 함수이다. 05_practice_baekjoon_알고리즘기초1-->04_수학1
-                # -->02_최대공약수와_최소공배수_2609 참고
+def gcd(a,b): 
     if b==0:
         return a
     else:
