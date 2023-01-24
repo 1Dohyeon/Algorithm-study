@@ -1,0 +1,7 @@
+django 파일 생성
+django-admin startproject myapp
+django-admin startapp api
+
+서버열기
+python .\manage.py migrate 
+python .\manage.py runserver
