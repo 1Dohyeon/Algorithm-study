@@ -1,2 +1,4 @@
 npm install express --save : express 라이브러리 사용 명령어
 npm run start : js 파일 실행
+
+localhost:port 로 html 실행
