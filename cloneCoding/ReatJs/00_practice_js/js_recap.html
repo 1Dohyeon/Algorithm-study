@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JS복습</title>
+    </head>
+    <body>
+        <span>Total clicks: 0</span>
+        <button id="btn">Click me</button>
+        <button id="reset">Reset</button>
+    </body>
+    <script>
+        let cnt=0;
+        const button=document.getElementById("btn");    // html 문서를 js 변수로 불러옴
+        const span=document.querySelector("span");
+        const resetBtn=document.getElementById("reset");
+        function handleClick(){
+            cnt+=1;
+            span.innerText='Total clicks: '+cnt;
+        }
+        function retire(){
+            cnt=0
+            span.innerText='Total clicks: '+cnt;
+        }
+        button.addEventListener("click",handleClick);   // button을 click하여 handleClick함수가 반응하는 코드
+        resetBtn.addEventListener("click",retire);
+    </script>
+</html>
