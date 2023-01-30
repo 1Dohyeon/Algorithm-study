@@ -48,12 +48,12 @@ class NotificationList extends React.Component{
     render(){
         return(
             <div>
-                {this.state.notifications.map((notification)=>{
+                {this.state.notifications.map((notification_value)=>{
                     return (
                         <Notification 
-                        key={notification.id}   // key는 react element를 구분하기 위한 고유의 값. map함수 이용시 필수적으로 이용해야함.
-                        id={notification.id}
-                        message={notification.message}
+                        key={notification_value.id}   // key는 react element를 구분하기 위한 고유의 값. map함수 이용시 필수적으로 이용해야함.
+                        id={notification_value.id}
+                        message={notification_value.message}
                         />
                     );
                 })}
