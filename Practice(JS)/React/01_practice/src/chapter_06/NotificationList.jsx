@@ -2,20 +2,17 @@ import React from "react";
 import Notification from "./Notification";
 
 const reservedNotifications=[
-    {
+    {   
+        id:1,
         message:"안녕하세요, 오늘의 일정을 알려드립니다.",
     },
     {
+        id:2,
         message:"점심식사 시간입니다.",
     },
     {
+        id:3,
         message:"이제 곧 미팅이 시작됩니다.",
-    },
-    {
-        message:"이제 곧 근무 시간입니다.",
-    },
-    {
-        message:"저녁식사 시간입니다.",
     },
 ]
 
@@ -40,6 +37,9 @@ class NotificationList extends React.Component{
                     notifications: notifications,
                 });
             }else{
+                this.state={
+                    notifications:[],   // notification 배열 비우기
+                }
                 clearInterval(timer);
             }
         },1000);
@@ -49,7 +49,13 @@ class NotificationList extends React.Component{
         return(
             <div>
                 {this.state.notifications.map((notification)=>{
-                    return <Notification message={notification.message}/>;
+                    return (
+                        <Notification 
+                        key={notification.id}   // key는 react element를 구분하기 위한 고유의 값. map함수 이용시 필수적으로 이용해야함.
+                        id={notification.id}
+                        message={notification.message}
+                        />
+                    );
                 })}
             </div>
         );
