@@ -11,7 +11,7 @@ const comments=[
         comment:"second comment",
     },
     {
-        name:"장준하",
+        name:"정준하",
         comment:"third comment",
     },
     {
