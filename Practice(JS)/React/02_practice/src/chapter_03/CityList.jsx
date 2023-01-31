@@ -38,7 +38,7 @@ const styles={
     title:{
         width:"100%",
         height:"40px",
-        marginLeft:"255px",
+        marginLeft:"270px",
         marginTop:"100px",
         color:"rgb(30,30,30)",
         fontSize:"30px",

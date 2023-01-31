@@ -2,12 +2,11 @@ import React from "react";
 
 const styles={
     wrapper:{
-        margin:"8px",
         boxShadow:"0px 0px 10px gray",
         width: '180px',
         height: '250px',
         margin:'60px',
-        marginTop:'none',
+        marginTop:'15px',
         borderRadius:25,
     },
     imageContainer:{

@@ -3,23 +3,23 @@ import Menu from "./Menu";
 
 const menuOptions=[
     {
-        option:"메뉴1",
+        option:"menu1",
     },
     {
-        option:"메뉴2",
+        option:"menu2",
     },
     {
-        option:"메뉴3",
+        option:"menu3",
     },
     {
-        option:"메뉴4",
+        option:"menu4",
     },
 ];
 
 const styles={
     wrapper:{
         display:"flex",
-        width:"800px",
+        width:"790px",
     },
 };
 

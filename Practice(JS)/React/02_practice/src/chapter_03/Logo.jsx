@@ -7,7 +7,7 @@ const styles={
     },
     logoImg:{
         alignItems:"center",
-        marginLeft:"250px",
+        marginLeft:"270px",
         width:"160px",
         height:"40px",
         marginTop:"15px",
