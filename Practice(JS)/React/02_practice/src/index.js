@@ -4,11 +4,12 @@ import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
 // import CityList from './chapter_01/CityList';
-import Header from './chapter_02/Header';
+// import Header from './chapter_02/Header';
+import Index from './chapter_03/Index';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Header />
+    <Index />
   </React.StrictMode>
 );
 

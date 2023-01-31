@@ -8,8 +8,8 @@ const styles={
         justifyContent:"space-between",
         width:"100%",
         height:"70px",
-        borderBottom:"2px solid rgba(30,30,30,0.2)",
-    }
+        boxShadow:"0px 3px 5px -3px gray",
+    } 
 };
 
 function Header(props){

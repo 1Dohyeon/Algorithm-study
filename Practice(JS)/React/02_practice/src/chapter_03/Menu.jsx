@@ -1,6 +1,10 @@
 import React from "react";
 
 const styles={
+    a:{
+        textDecorationLine:"none",
+        color:"black",
+    },
     wrapper:{
         width:"140px",
         height:"70px",
@@ -10,11 +14,7 @@ const styles={
     optionName:{
         textAlign:"center",
         fontSize:"16px",
-    },
-    a:{
-        textDecorationLine:"none",
-        color:"black",
-    },
+    }
 };
 
 function Menu(props){
