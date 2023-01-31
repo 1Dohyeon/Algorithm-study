@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+02_practice: Recap 01_practice 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
