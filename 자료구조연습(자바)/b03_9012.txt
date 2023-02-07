@@ -1,0 +1,48 @@
+package dataStructure1_dfs;
+import java.io.*;
+import java.util.Stack;
+
+public class b03_9012 {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
+		int t = Integer.parseInt(br.readLine());
+		Stack<Character> stack = new Stack<>();
+
+		for(int i=0; i<t; i++) {
+			String input = br.readLine();
+			int length = input.length();
+
+			for(int j=0; j<length; j++) {
+				char ch = input.charAt(j);
+				
+				if(ch == '(') {
+					stack.push(ch);
+				}
+				else {
+					int size = stack.size();
+					if(size == 0) {
+						stack.push(ch);
+						break;
+					}
+					else {
+						stack.pop();
+					}
+				}
+			}
+
+			if(stack.isEmpty()) {
+				System.out.println("YES");
+			}
+			else {
+				System.out.println("NO");
+			}
+
+			stack.clear();
+		}
+		
+	}
+	
+}
