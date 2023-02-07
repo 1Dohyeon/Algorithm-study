@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import Main from "./Main";
+import Result from "./Result";
 
 const styles={
     body:{
@@ -26,6 +27,7 @@ function Index(props){
                 <div style={styles.bg}>
                     <Header></Header>
                     <Main></Main>
+                    <Result></Result>
                 </div>
             </div>
         </body>
