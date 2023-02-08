@@ -11,7 +11,7 @@ const styles={
     bgImg:{
         height:"740px",
         width:"360px",
-        backgroundImage:"url(../images/sea_sunset_horizon_131804_480x800.jpg)",
+        backgroundImage:"url('../images/background_img.jpg')",
     },
     bg:{
         height:"740px",

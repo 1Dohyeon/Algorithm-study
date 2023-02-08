@@ -1,4 +1,5 @@
 import React from 'react';
+import * as api from '../chapter_05/apiF.js';
 
 const styles={
     sys:{
@@ -72,7 +73,7 @@ function Main(props){
                 </div>
             </div>
             <div style={styles.btn}>
-                <input style={styles.input_btn} type="submit" value="확인"></input>
+                <input style={styles.input_btn} type="submit" value="확인" onClick={api.getTph}></input>
             </div>
         </div>
         

@@ -1,0 +1,40 @@
+package dataStructure1_dfs;
+import java.io.*;
+import java.util.Stack;
+
+public class b04_1874 {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();	// 출력할 결과를 저장
+		
+		Stack<Integer> stack = new Stack<>();
+		
+		int n = Integer.parseInt(br.readLine());
+		int k = 0;
+		for (int i=0;i<n;i++) {
+			int value = Integer.parseInt(br.readLine());
+			
+			if(value > k) {
+				// start + 1부터 입력받은 value 까지 push를 한다.
+				for(int j = k + 1; j <= value; j++) {
+					stack.push(j);
+					sb.append('+').append('\n');	// + 를 저장한다. 
+				}
+				k = value; 	// 다음 push 할 때의 오름차순을 유지하기 위한 변수 초기화 
+			} else if (stack.peek() != value) {	// stack의 top이 value값과 같이 않다면 
+				System.out.println("NO");
+				return;		// return은 부분적인 함수를 정상종료 시키는 것이다. 하지만 여기서 return은 main()속 return이기에 프로그램 전체 종료.
+							// System.exit(0); 으로 대체해도 됨.(강제종료)
+							// break는 반복문만 종료를 해버리고 sb를 출력시키기 때문에 에러가 뜬다.
+			}
+			
+			stack.pop();
+			sb.append('-').append('\n');
+		}
+		
+		System.out.println(sb);
+	}
+
+}
