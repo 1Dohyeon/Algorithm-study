@@ -1,0 +1,25 @@
+header {
+    background-color: #1DA1F2;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  textarea {
+    margin-bottom: 10px;
+  }
+  
+  .tweet {
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
