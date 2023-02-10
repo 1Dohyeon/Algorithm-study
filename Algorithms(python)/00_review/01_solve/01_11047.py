@@ -3,7 +3,7 @@ coins=[]
 
 for _ in range(n):
     coins.append(int(input()))
-
+r=0
 cnt=0
 for i in range(n-1,-1,-1):
     cnt+=k//coins[i]
