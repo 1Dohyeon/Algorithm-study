@@ -1,0 +1,64 @@
+package dataStructure1_dfs;
+import java.io.*;
+import java.util.Stack;
+
+public class b05_1406 {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		Stack<Character> left = new Stack<>();
+		Stack<Character> right = new Stack<>();
+		//  1 2 3 | 3 2 1 이라고 생각 |가 커서고 왼쪽이 left스택 오른쪽이 right 스택이고 각 스택에서 3이 top 1이 맨 아래이다.
+		
+		String str = br.readLine();
+		
+		// 변수 str을 char타입으로 전환 후 전부 커서 왼쪽에 있으므로 왼쪽 스택배열에 담아줌.
+		for(int i = 0; i < str.length(); i++){
+            left.push(str.charAt(i));
+        }
+
+		int m = Integer.parseInt(br.readLine());
+		
+		for (int i=0;i<m;i++) {
+			String command = br.readLine();
+			
+			switch(command.charAt(0)) {
+			case 'L':
+				if (!left.empty()) {
+					right.push(left.pop());
+				}
+				break;
+			case 'D':
+				if (!right.empty()) {
+					left.push(right.pop());
+				}
+				break;
+			case 'B':
+				if (!left.empty()) {
+					left.pop();
+				}
+				break;
+			case 'P':
+				left.push(command.charAt(2));	// 1번째는 ' ' 이므로 2
+				break;
+			}
+		}
+		
+			
+		// left에다가 push하는게 맞아 보이지만 마지막에 sb에 pop을 해주기 때문에 right에다가 push해준다.
+		while(!left.empty()) {
+			right.push(left.pop());
+		}
+		
+		StringBuilder sb = new StringBuilder();	// 출력할 결과를 저장
+		
+		while (!right.empty()) {
+			sb.append(right.pop());
+		}
+		
+		System.out.println(sb);
+	}
+
+}

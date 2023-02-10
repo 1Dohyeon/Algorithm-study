@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Bevan:ital@1&family=Norican&display=swap');
+.btn{
+    width: 100%;
+    height:calc((100vh - 250px)/3 - 30px);
+    border: none;
+    border-bottom: 5px solid #1f202a;
+    background-color: transparent;
+    vertical-align: bottom;
+}
+.aBox{
+    width: 100%;
+    position: absolute;
+    margin-top: calc(((100vh - 250px)/3 - 110px));
+}
+.aBox a{
+    font-size: 50px;
+    color: #fff;
+    font-family: 'Bevan', cursive;
+    padding: 0px 30px;
+    border-bottom: 5px solid transparent;
+}
+.aBox a:hover{
+    transition-duration: 1.5s;
+    cursor: pointer;
+    padding-left: 45vw;
+    padding-right: 20px;
+    margin-top: calc(((100vh - 250px)/3 - 110px));
+    border-bottom: 5px solid #fff;
+}
+
+@media(max-width:920px){
+    .aBox{
+        margin-top: calc(((100vh - 250px)/3  - 86px));
+    }
+    .aBox a{
+        font-size: 35px;
+    }
+    .aBox a:hover{
+        padding-left: 32vw;
+    }
+}
+@media(max-width:340px){
+    .aBox{
+        margin-top: calc(((100vh - 250px)/3  - 70px));
+    }
+    .aBox a{
+        font-size: 25px;
+    }
+    .aBox a:hover{
+        padding-left: 19vw;
+    }
+}
+@media(max-width:250px){
+    .btn{
+        display: none;
+    }
+}
+@media(max-height:550px){
+    .btn{
+        height:calc((100vh - 250px)/3 - 30px); 
+    }
+    .aBox{
+        margin-top: calc(((100vh - 250px)/3  - 87px));
+    }
+    .aBox a{
+        font-size: 35px;
+    }
+}
+@media(max-height:500px){
+    .btn{
+        height:calc((100vh - 250px)/3 - 20px); 
+    }
+    .aBox{
+        margin-top: calc(((100vh - 250px)/3  - 76px));
+    }
+}
+@media(max-height:450px){
+    .btn{
+        height:calc((100vh - 250px)/3 - 10px); 
+    }
+    .aBox{
+        margin-top: calc(((100vh - 250px)/3  - 50px));
+    }
+    .aBox a{
+        font-size: 25px;
+    }
+}
+@media(max-height:400px){
+    .btn{
+        display: none;
+    }
+}

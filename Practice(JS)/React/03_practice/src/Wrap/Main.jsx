@@ -1,21 +1,13 @@
 import React from "react";
-import Field from "../Field/Field";
-import Logo from "../Logo/Logo";
 import './Main.css';
+import Header from "../Header/Header";
+import Contents from "../Contents/Contents";
 
 function Main(props){
     return(
         <div className="wrapper">
-            <div className="layout">
-                <div className="Nav">
-                    <Logo></Logo>
-                </div>
-                <div className="FieldContainer">
-                    <Field></Field>
-                    <Field></Field>
-                    <Field></Field>
-                </div>
-            </div>
+            <Header></Header>
+            <Contents></Contents>
         </div>
     );
 }
