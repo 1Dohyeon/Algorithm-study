@@ -1,2 +1,2 @@
-# Studying
+# Algorithm Studying
 
