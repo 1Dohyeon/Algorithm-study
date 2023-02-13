@@ -1,0 +1,94 @@
+package dataStructure1_dfs;
+
+import java.io.*;
+import java.util.StringTokenizer;
+
+public class b06_10845_q_2 {
+	//static은 전역적으로 쉽게 재사용하는 멤버나 잘 변하지 않는 변수나, 메소드를 사용할때 주로 사용됩니다.
+	//만들어 놓고 클래스 호출, 객체 생성을 따로 할 필요없이 바로바로 사용할 수 있기 때문에 사용성이 좋습니다.
+	//하지만 static은 메모리 자원을 할당해놓고 사용하는 것이기 때문에 너무 많이 사용한다면 메모리를 많이 차지하게 되어서 프로그램이 무거워 집니다.
+	static int[] que = new int[10001];
+	static int first = 0;
+	static int last = 0;
+
+	public static void main(String[] args) throws IOException{
+		// 큐를 구현
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));	// 입력받음
+		StringBuilder sb = new StringBuilder();	// StringBuilder는 append함수를 이용하여 문자열을 더하게 해주는 함수이다.
+		int n = Integer.parseInt(br.readLine());
+		
+		for (int i=0;i<n;i++) {
+			
+			StringTokenizer st = new StringTokenizer(br.readLine()," "); 
+			// 입력받은 문자열을 split을 통해 분류할 수도 있지만 StringTokenizer를 통해서도 분류할 수 있다.
+			
+			switch(st.nextToken()) {
+			case "push" :
+				push(Integer.parseInt(st.nextToken()));
+				break;
+			case "pop" :
+				sb.append(pop()).append("\n");
+				break;
+			case "size" :
+				sb.append(size()).append("\n");
+				break;
+			case "empty" :
+				sb.append(empty()).append("\n");
+				break;
+			case "front" :
+				sb.append(front()).append("\n");
+				break;
+			case "back" :
+				sb.append(back()).append("\n");
+				break;
+			}
+			
+			}
+		System.out.println(sb);
+	}
+	
+	public static void push(int X) {
+		que[last] = X;
+		last++;
+	}
+	
+	public static int pop() {
+		if(last - first == 0) {
+			return -1;
+		}else {
+			int P = que[first];	
+			first++;
+			return P;
+		}
+	}
+	
+	public static int size() {
+		return last - first;	// 배열의 index값으로는 남아있지만 last와 first의 차로 size를 구함
+	}
+	
+	public static int empty() {
+		if(last - first == 0) {
+			return 1;
+		}else {
+			return 0;
+		}
+	}
+	
+	public static int front() {
+		if(last - first == 0) {
+			return -1;
+		}else {
+			int F = que[first];
+			return F;
+		}
+	}
+	
+	public static int back() {
+		if(last - first == 0) {
+			return -1;
+		}else {
+			int B = que[last - 1];
+			return B;
+		}
+	}
+}
