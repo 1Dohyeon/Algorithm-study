@@ -1,0 +1,36 @@
+package a1_sort;
+import java.io.*;
+// import java.util.Arrays; 후에 Arrays.sort(nums);을 이용해도 된다.
+
+public class b01_2750 {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		
+		int n = Integer.parseInt(br.readLine());
+		int[] nums = new int[n];
+		
+		for (int i=0;i<n;i++) {
+			nums[i] = Integer.parseInt(br.readLine());
+		}
+		
+		for (int i=0;i<n-1;i++) {
+			for (int j=i+1;j<n;j++) {
+				if(nums[i] > nums[j]) {
+					int temp = nums[j];
+					nums[j] = nums[i];
+					nums[i] = temp;
+				}
+			}
+		}
+		
+		for (int i=0;i<n;i++) {
+			sb.append(nums[i]).append("\n");
+		}
+		System.out.println(sb);
+		
+	}
+
+}
